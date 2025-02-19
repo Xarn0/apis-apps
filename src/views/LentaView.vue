@@ -66,6 +66,7 @@ onMounted(fetchAndParseXML)
       <button class="post__btn" @click="updateLenta">Обновить</button>
       <p>Количество записей: {{ listPostLength }}</p>
     </div>
+    <template v-if="!listPostReverce.length"> <p class="post__load">загрузка...</p></template>
     <ul class="post__list">
       <li v-for="(item, index) in listPostReverce" :key="index">
         <span class="post__item-number">{{ index + 1 }} </span>
@@ -82,6 +83,13 @@ onMounted(fetchAndParseXML)
 </template>
 <style lang="scss">
 .post {
+  &__load {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+    font-size: 40px;
+  }
   &__header {
     display: flex;
     justify-content: space-between;
