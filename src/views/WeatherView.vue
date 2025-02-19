@@ -18,7 +18,7 @@ const result = ref<WeatherData | null>(null)
 const weatherFetch = async () => {
   try {
     loading.value = true
-    const apiUrl = `http://api.weatherapi.com/v1/current.json?key=${TOKEN_KEY}&q=${city.value}&lang=ru`
+    const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${TOKEN_KEY}&q=${city.value}&lang=ru`
 
     const response = await fetch(apiUrl)
     if (!response.ok) throw new Error(`Ошибка ${response.status}: ${response.statusText}`)
